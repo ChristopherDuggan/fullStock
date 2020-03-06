@@ -13,9 +13,11 @@ export default class Portfolio extends Component {
     this.setState({ stocks: data.data })
   }
 
-  async componentDidUpdate() {
-    const data = await getAllStocks(this.props.userId)
-    this.setState({ stocks: data.data })
+  async componentDidUpdate(prevProps) {
+    if (prevProps.data !== this.props.data) {
+      const data = await getAllStocks(this.props.userId)
+      this.setState({ stocks: data.data })
+    }
   }
 
   render() {
@@ -26,14 +28,14 @@ export default class Portfolio extends Component {
 
     const transactions = stocks.map(stock =>
       <Transaction
-      key={stock.id}
-      ticker={stock.ticker}
-      name={stock.companyName}
-      qty={stock.qty}
-      createdAt={stock.createdAt}
-      isMobile={isMobile}
+        key={stock.id}
+        ticker={stock.ticker}
+        name={stock.companyName}
+        qty={stock.qty}
+        createdAt={stock.createdAt}
+        isMobile={isMobile}
       />)
-        .reverse()
+      .reverse()
 
     if (isMobile) {
       return (
