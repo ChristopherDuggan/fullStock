@@ -18,7 +18,8 @@ export default class LoginWrapper extends Component {
               <Menu.Item name='Register' active={activeItem === 'Register'} onClick={handleItemClick} />
             </Menu>
             <Segment className="even-height" attached='bottom'>
-              <Header as='h1'>Full Stack Stocks</Header>
+              <Header as='h1'>fullStock</Header>
+              <Header as='h3'>full stack stocks</Header>
               {
                 activeItem === 'Login' ?
                   <Login
