@@ -74,20 +74,6 @@ export default class Portfolio extends Component {
 
         <Grid stackable columns={2}>
           <Grid.Column>
-            <Header size="huge">Portfolio</Header>
-            <List >
-              {
-                formattedStocks.map(stock =>
-                  <Stock
-                    key={stock.ticker}
-                    companyName={stock.companyName}
-                    symbol={stock.ticker}
-                    qty={stock.qty}
-                  />)
-              }
-            </List>
-          </Grid.Column>
-          <Grid.Column>
             <Header size="huge">Search For Stocks</Header>
             <Form onSubmit={onSymbolSubmit}>
               <Popup
@@ -134,6 +120,20 @@ export default class Portfolio extends Component {
                     content="There was an error handling your purchase."
                   /> : null
             }
+          </Grid.Column>
+          <Grid.Column>
+            <Header size="huge">Portfolio</Header>
+            <List >
+              {
+                formattedStocks.map(stock =>
+                  <Stock
+                    key={stock.ticker}
+                    companyName={stock.companyName}
+                    symbol={stock.ticker}
+                    qty={stock.qty}
+                  />)
+              }
+            </List>
           </Grid.Column>
         </Grid>
       </>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Popup } from 'semantic-ui-react'
+import { Form, Button, Icon, Popup } from 'semantic-ui-react'
 import './Login.css'
 
 
@@ -24,7 +24,14 @@ export default class Login extends Component {
           <input name="password" type="password" onChange={onFormChange} />
         </Form.Field>
         <Popup
-          trigger={<Button type='submit'>Sign In</Button>}
+          trigger={
+            <Button type="submit" animated>
+              <Button.Content visible>Sign In</Button.Content>
+              <Button.Content hidden>
+                 <Icon name='arrow right'/>
+              </Button.Content>
+            </Button>
+          }
           content={`Wrong Email or Password! Please Try Again`}
           on='click'
           open={isOpen}

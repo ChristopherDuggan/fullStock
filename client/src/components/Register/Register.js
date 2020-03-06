@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Button, Popup } from 'semantic-ui-react'
+import { Form, Button, Icon, Popup } from 'semantic-ui-react'
 import './Register.css'
 
 export default class Register extends Component {
@@ -23,7 +23,14 @@ export default class Register extends Component {
             <input name="password" type="password" onChange={onFormChange} />
           </Form.Field>
           <Popup
-            trigger={<Button type='submit'>Register</Button>}
+            trigger={
+              <Button type='submit' animated>
+                <Button.Content visible>Register</Button.Content>
+                <Button.Content hidden>
+                 <Icon name='arrow right'/>
+                </Button.Content>
+              </Button>
+            }
             content={`All Fields Required!`}
             on='click'
             open={isOpen}

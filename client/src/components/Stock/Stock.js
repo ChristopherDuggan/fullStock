@@ -31,7 +31,6 @@ export default class Stock extends Component {
   render() {
     const { positive, negative } = this.state
     const { symbol, companyName, qty } = this.props;
-    debugger
     const currentPrice = this.state.price.toFixed(2);
     const total = currentPrice * qty
 

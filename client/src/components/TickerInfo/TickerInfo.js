@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Input, Form } from 'semantic-ui-react'
+import { Card, Input, Form, Button, Icon } from 'semantic-ui-react'
 
 export default class TickerInfo extends Component {
   render() {
@@ -18,9 +18,8 @@ export default class TickerInfo extends Component {
         </Card.Content>
         <Card.Content extra>
           <Form onSubmit={onBuySubmit}>
-            <Input
-              fluid
-              action='Buy'
+            <Form.Field
+              control={Input}
               value={qty}
               name="qty"
               type="number"
@@ -28,6 +27,13 @@ export default class TickerInfo extends Component {
               placeholder="Enter Quantity..."
               onChange={onFormChange}
             />
+            <Button type="buy" fluid  animated>
+              <Button.Content visible>Buy</Button.Content>
+              <Button.Content hidden>
+                 <Icon name='arrow right'/>
+              </Button.Content>
+            </Button>
+
           </Form>
         </Card.Content>
       </Card>
