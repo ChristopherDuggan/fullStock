@@ -37,7 +37,8 @@ export default class Portfolio extends Component {
       purchaseStatus,
       visible,
       isOpen,
-      handleOpen
+      handleOpen,
+      isMobile
     } = this.props;
 
     const { stocks } = this.state;
@@ -74,7 +75,7 @@ export default class Portfolio extends Component {
 
         <Grid stackable columns={2}>
           <Grid.Column>
-            <Header size="huge">Search For Stocks</Header>
+            <Header size={isMobile ? "small": "huge"}>Search For Stocks</Header>
             <Form onSubmit={onSymbolSubmit}>
               <Popup
                 trigger={<Input
@@ -122,7 +123,7 @@ export default class Portfolio extends Component {
             }
           </Grid.Column>
           <Grid.Column>
-            <Header size="huge">Portfolio</Header>
+            <Header size={isMobile ? "small": "huge"}>Portfolio</Header>
             <List >
               {
                 formattedStocks.map(stock =>

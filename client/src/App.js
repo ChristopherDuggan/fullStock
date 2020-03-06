@@ -25,7 +25,21 @@ export default class App extends Component {
     purchaseStatus: '',
     symbolPresent: false,
     visible: false,
-    isOpen: false
+    isOpen: false,
+    width: window.innerWidth
+
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth })
   }
 
   onFormChange = (event) => {
@@ -144,8 +158,11 @@ export default class App extends Component {
       purchaseStatus,
       visible,
       isOpen,
-      handleOpen
+      handleOpen,
+      width
     } = this.state;
+
+    const isMobile = width <= 768;
 
     return (
       <main className="ui container fixed-margin">
@@ -169,6 +186,7 @@ export default class App extends Component {
                 activeItem={activeItem}
                 handleItemClick={this.handleItemClick}
                 balance={balance}
+                isMobile={isMobile}
               />
               <Redirect to="/portfolio" />
               <Route path="/portfolio" render={() =>
@@ -189,12 +207,14 @@ export default class App extends Component {
                   visible={visible}
                   isOpen={isOpen}
                   handleOpen={handleOpen}
+                  isMobile={isMobile}
                 />}
               />
               <Route path="/transactions" render={() =>
                 <Transactions
                   userId={userId}
                   symbolData={symbolData}
+                  isMobile={isMobile}
                 />}
               />
             </>

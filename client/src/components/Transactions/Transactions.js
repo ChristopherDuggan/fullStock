@@ -20,17 +20,38 @@ export default class Portfolio extends Component {
 
   render() {
 
+    const { isMobile } = this.props
+
     const { stocks } = this.state
 
     const transactions = stocks.map(stock =>
       <Transaction
-        key={stock.id}
-        ticker={stock.ticker}
-        name={stock.companyName}
-        qty={stock.qty}
-        createdAt={stock.createdAt}
+      key={stock.id}
+      ticker={stock.ticker}
+      name={stock.companyName}
+      qty={stock.qty}
+      createdAt={stock.createdAt}
+      isMobile={isMobile}
       />)
-      .reverse()
+        .reverse()
+
+    if (isMobile) {
+      return (
+        <>
+          <Header size="medium">Transactions</Header>
+          <Table celled unstackable>
+            <Table.Header>
+              <Table.HeaderCell width={3}>Symbol</Table.HeaderCell>
+              <Table.HeaderCell width={3}>Quantity</Table.HeaderCell>
+              <Table.HeaderCell width={10} textAlign='right'>Date</Table.HeaderCell>
+            </Table.Header>
+            <Table.Body>
+              {transactions}
+            </Table.Body>
+          </Table>
+        </>
+      )
+    }
 
     return (
       <>
