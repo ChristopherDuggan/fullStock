@@ -1,23 +1,23 @@
-const { User, Stock } = require('./models');
+const { User, Stock } = require('./models')
 
 // delete database contents
 
 const main = async () => {
   await User.destroy({
     where: {}
-  });
+  })
 
   await Stock.destroy({
     where: {}
-  });
+  })
 
-// default user
+  // default user
   await User.create({
     username: 'Ruberto Duck',
     email: 'wet@bird.com',
     password: 'quack',
     balance: 5000
-  });
+  })
 
   await Stock.create({
     companyName: 'Alphabet Inc.',
@@ -25,17 +25,16 @@ const main = async () => {
     qty: 100,
     userId: 1
   })
-
 }
 
 const run = async () => {
   try {
-    await main();
+    await main()
   } catch (e) {
-    console.error(e);
+    console.error(e)
   } finally {
-    await process.exit();
+    await process.exit()
   }
 }
 
-run();
+run()

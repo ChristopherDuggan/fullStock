@@ -11,17 +11,17 @@ const stocks = axios.create({
   baseURL: `${STOCKSAPI}`
 })
 
-//retrieve a symbol using its ticker
+// retrieve a symbol using its ticker
 export const symbolGetter = async (symbol) => {
   try {
     const resp = await stocks.get(`/stock/${symbol}/quote?token=${apikey}`)
     return resp
   } catch (e) {
-    return { data: "FAILED" }
+    return { data: 'FAILED' }
   }
 }
 
-//login a user
+// login a user
 export const loginUser = async (data) => {
   try {
     const resp = await api.post('/user/signin', data)
@@ -31,7 +31,7 @@ export const loginUser = async (data) => {
   }
 }
 
-//register a user
+// register a user
 export const createUser = async (data) => {
   try {
     const resp = await api.post('/user/register', data)
@@ -41,7 +41,7 @@ export const createUser = async (data) => {
   }
 }
 
-//update the balance of the user
+// update the balance of the user
 export const updateBalance = async (id, data) => {
   try {
     const resp = await api.put(`/user/${id}/update`, data)
@@ -51,17 +51,17 @@ export const updateBalance = async (id, data) => {
   }
 }
 
-//update portfolio stocks
+// update portfolio stocks
 export const addStock = async (data) => {
   try {
-    const resp = await api.post(`/user/addstock`, data)
+    const resp = await api.post('/user/addstock', data)
     return resp
   } catch (e) {
     console.log(e)
   }
 }
 
-//get all stocks using the id
+// get all stocks using the id
 export const getAllStocks = async (id) => {
   try {
     const resp = await api.get(`/user/${id}/getallstocks`)

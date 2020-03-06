@@ -5,8 +5,7 @@ import Register from '../Register/Register'
 import './LoginWrapper.css'
 
 export default class LoginWrapper extends Component {
-
-  render() {
+  render () {
     const { handleOpen, isOpen, activeItem, handleItemClick, onFormChange, onLoginSubmit, onRegisterSubmit } = this.props
 
     return (
@@ -17,24 +16,24 @@ export default class LoginWrapper extends Component {
               <Menu.Item name='Login' active={activeItem === 'Login'} onClick={handleItemClick} />
               <Menu.Item name='Register' active={activeItem === 'Register'} onClick={handleItemClick} />
             </Menu>
-            <Segment className="even-height" attached='bottom'>
+            <Segment className='even-height' attached='bottom'>
               <Header as='h1'>fullStock</Header>
               <Header as='h3'>full stack stocks</Header>
               {
-                activeItem === 'Login' ?
-                  <Login
+                activeItem === 'Login'
+                  ? <Login
                     isOpen={isOpen}
                     handleOpen={handleOpen}
                     onFormChange={this.props.onFormChange}
                     onLoginSubmit={onLoginSubmit}
-                  />
-                  : activeItem === 'Register' ?
-                    <Register
+                    />
+                  : activeItem === 'Register'
+                    ? <Register
                       isOpen={isOpen}
                       handleOpen={handleOpen}
                       onFormChange={onFormChange}
                       onRegisterSubmit={onRegisterSubmit}
-                    />
+                      />
                     : null
               }
             </Segment>

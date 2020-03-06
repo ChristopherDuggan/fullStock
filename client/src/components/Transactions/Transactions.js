@@ -41,9 +41,11 @@ export default class Portfolio extends Component {
           <Header size="medium">Transactions</Header>
           <Table celled unstackable>
             <Table.Header>
-              <Table.HeaderCell width={3}>Symbol</Table.HeaderCell>
-              <Table.HeaderCell width={3}>Quantity</Table.HeaderCell>
-              <Table.HeaderCell width={10} textAlign='right'>Date</Table.HeaderCell>
+              <Table.Row>
+                <Table.HeaderCell width={3}>Symbol</Table.HeaderCell>
+                <Table.HeaderCell width={3}>Quantity</Table.HeaderCell>
+                <Table.HeaderCell width={10} textAlign='right'>Date</Table.HeaderCell>
+              </Table.Row>
             </Table.Header>
             <Table.Body>
               {transactions}

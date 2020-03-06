@@ -2,20 +2,20 @@ import React, { Component } from 'react'
 import { Table, Header } from 'semantic-ui-react'
 
 export default class Transaction extends Component {
-  render() {
+  render () {
     const { name, qty, ticker, createdAt, isMobile } = this.props
     const options = {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric"
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric'
     }
 
     const mobileOptions = {
-      hour: "numeric",
-      minute: "numeric"
+      hour: 'numeric',
+      minute: 'numeric'
     }
 
     const date = new Date(createdAt)

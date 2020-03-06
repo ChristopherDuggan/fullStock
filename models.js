@@ -7,7 +7,7 @@ const db = new Sequelize({
     underscored: true,
     returning: true
   }
-});
+})
 
 const User = db.define('users', {
   email: {
@@ -26,23 +26,22 @@ const User = db.define('users', {
   balance: {
     type: Sequelize.INTEGER
   }
-});
-
+})
 
 const Stock = db.define('stocks', {
   companyName: Sequelize.STRING,
   ticker: Sequelize.STRING,
   qty: Sequelize.INTEGER
-});
+})
 
 User.hasMany(Stock, {
-  onDelete: 'cascade',
-});
+  onDelete: 'cascade'
+})
 
-Stock.belongsTo(User);
+Stock.belongsTo(User)
 
 module.exports = {
   User,
   Stock,
   db
-};
+}

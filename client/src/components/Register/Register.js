@@ -3,35 +3,34 @@ import { Form, Button, Icon, Popup } from 'semantic-ui-react'
 import './Register.css'
 
 export default class Register extends Component {
-  render() {
-
-    const { onFormChange, onRegisterSubmit, isOpen, handleOpen } = this.props;
+  render () {
+    const { onFormChange, onRegisterSubmit, isOpen, handleOpen } = this.props
 
     return (
       <div>
-        <Form onSubmit={onRegisterSubmit} className="even-height">
+        <Form onSubmit={onRegisterSubmit} className='even-height'>
           <Form.Field>
-            <label className="left-align" >Full Name</label>
-            <input name="username" type="text" onChange={onFormChange} />
+            <label className='left-align'>Full Name</label>
+            <input name='username' type='text' onChange={onFormChange} />
           </Form.Field>
           <Form.Field>
-            <label className="left-align" >Email</label>
-            <input name="email" type="email" onChange={onFormChange} />
+            <label className='left-align'>Email</label>
+            <input name='email' type='email' onChange={onFormChange} />
           </Form.Field>
           <Form.Field>
-            <label className="left-align">Password</label>
-            <input name="password" type="password" onChange={onFormChange} />
+            <label className='left-align'>Password</label>
+            <input name='password' type='password' onChange={onFormChange} />
           </Form.Field>
           <Popup
             trigger={
               <Button type='submit' animated>
                 <Button.Content visible>Register</Button.Content>
                 <Button.Content hidden>
-                 <Icon name='arrow right'/>
+                  <Icon name='arrow right' />
                 </Button.Content>
               </Button>
             }
-            content={`All Fields Required!`}
+            content='All Fields Required!'
             on='click'
             open={isOpen}
             onOpen={handleOpen}

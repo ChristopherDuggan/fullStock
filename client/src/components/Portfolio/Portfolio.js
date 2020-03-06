@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, List, Header, Form, Input, Message, Popup } from 'semantic-ui-react'
+import './Portfolio.css'
 import TickerInfo from '../TickerInfo/TickerInfo';
 import Stock from '../Stock/Stock';
 import { getAllStocks } from '../../services/api'
@@ -72,7 +73,6 @@ export default class Portfolio extends Component {
 
     return (
       <>
-
         <Grid stackable columns={2}>
           <Grid.Column>
             <Header size={isMobile ? "small": "huge"}>Search For Stocks</Header>
