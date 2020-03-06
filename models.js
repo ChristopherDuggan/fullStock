@@ -41,4 +41,8 @@ User.hasMany(Stock, {
 
 Stock.belongsTo(User);
 
-module.exports = { User, Stock, db };
+module.exports = {
+  User,
+  Stock,
+  db
+};

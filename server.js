@@ -7,6 +7,7 @@ const morgan = require('morgan')
 const app = express()
 
 app.use(cors())
+
 app.use(bodyParser.urlencoded({
   extended: true
 }))
@@ -27,4 +28,3 @@ app.get('/', async (req, res) => {
 const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => console.log(`fullStock backend listening on port: ${PORT}!`))
-
