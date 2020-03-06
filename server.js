@@ -2,6 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
+require('dotenv').config()
+const { userRouter } = require('./routes/userRouter')
 
 // initializing the express app
 const app = express()
@@ -16,6 +18,8 @@ app.use(bodyParser.json())
 
 app.use (morgan('dev'))
 
+app.use('/user', userRouter)
+
 app.get('/', async (req, res) => {
   try {
     res.send ({ hello: "world" })
@@ -28,3 +32,4 @@ app.get('/', async (req, res) => {
 const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => console.log(`fullStock backend listening on port: ${PORT}!`))
+
