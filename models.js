@@ -20,7 +20,7 @@ const User = db.define('users', {
   username: {
     type: Sequelize.STRING
   },
-  password {
+  password: {
     type: Sequelize.STRING
   },
   balance: {

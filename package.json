@@ -8,7 +8,8 @@
     "dev": "nodemon server.js",
     "resetDb": "node resetDb.js",
     "seed": "node seed.js",
-    "debug": "nodemon --inspect-brk server.js"
+    "debug": "nodemon --inspect-brk server.js",
+    "db:init": "dropdb --if-exists fullstock_db && createdb fullstock_db"
   },
   "repository": {
     "type": "git",

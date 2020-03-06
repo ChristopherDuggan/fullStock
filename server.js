@@ -15,6 +15,13 @@ app.use(bodyParser.json())
 
 app.use (morgan('dev'))
 
+app.get('/', async (req, res) => {
+  try {
+    res.send ({ hello: "world" })
+  } catch (e) {
+    res.status(e.status).json({ msg: e.status })
+  }
+})
 
 // establishing the I/O port
 const PORT = process.env.PORT || 3001
