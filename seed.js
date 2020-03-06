@@ -20,8 +20,8 @@ const main = async () => {
   });
 
   await Stock.create({
-    companyName: 'Bird Construction Company',
-    ticker: 'BDT',
+    companyName: 'Alphabet Inc.',
+    ticker: 'GOOG',
     qty: 100,
     userId: 1
   })
