@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Grid, List, Header, Form, Input, Message, Popup } from 'semantic-ui-react'
-import './Portfolio.css'
 import TickerInfo from '../TickerInfo/TickerInfo';
 import Stock from '../Stock/Stock';
 import { getAllStocks } from '../../services/api'
@@ -15,9 +14,11 @@ export default class Portfolio extends Component {
     this.setState({ stocks: data.data })
   }
 
-  async componentDidUpdate() {
-    const data = await getAllStocks(this.props.userId)
-    this.setState({ stocks: data.data })
+  async componentDidUpdate(prevProps) {
+    if (prevProps.data !== this.props.data) {
+      const data = await getAllStocks(this.props.userId)
+      this.setState({ stocks: data.data })
+    }
   }
 
   render() {

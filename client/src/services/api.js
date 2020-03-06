@@ -17,7 +17,7 @@ export const symbolGetter = async (symbol) => {
     const resp = await stocks.get(`/stock/${symbol}/quote?token=${apikey}`)
     return resp
   } catch (e) {
-    return { data: 'FAILED' }
+    return { data: "FAILED" }
   }
 }
 

@@ -30,17 +30,6 @@ export default class App extends Component {
 
   }
 
-  componentDidMount() {
-    window.addEventListener('resize', this.handleWindowSizeChange);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleWindowSizeChange);
-  }
-
-  handleWindowSizeChange = () => {
-    this.setState({ width: window.innerWidth })
-  }
 
   onFormChange = (event) => {
     const { name, value } = event.target;
