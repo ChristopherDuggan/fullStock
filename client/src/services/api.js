@@ -1,7 +1,7 @@
 import axios from 'axios'
-const URL = 'http://localhost:3001'
+const URL = process.env.REACT_APP_BASE_URL
 const STOCKSAPI = 'https://cloud.iexapis.com/stable'
-const apikey = 'pk_0942ab3ca4d34f93b4e7e34029501ebf'
+const apikey = process.env.REACT_APP_APIKEY
 
 const api = axios.create({
   baseURL: `${URL}`
