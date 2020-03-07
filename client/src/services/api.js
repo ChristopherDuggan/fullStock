@@ -1,5 +1,5 @@
 import axios from 'axios'
-const URL = 'https://fullstock-cd.herokuapp.com/4665'
+const URL = process.env.REACT_APP_BASE_URL
 const STOCKSAPI = 'https://cloud.iexapis.com/stable'
 const apikey = process.env.REACT_APP_APIKEY
 
