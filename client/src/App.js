@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+qimport React, { Component } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import './App.css'
 import LoginWrapper from './components/LoginWrapper/LoginWrapper'
@@ -30,6 +30,17 @@ export default class App extends Component {
 
   }
 
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth })
+  }
 
   onFormChange = (event) => {
     const { name, value } = event.target;
