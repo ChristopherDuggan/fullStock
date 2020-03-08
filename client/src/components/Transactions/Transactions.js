@@ -13,13 +13,6 @@ export default class Portfolio extends Component {
     this.setState({ stocks: data.data })
   }
 
-  async componentDidUpdate(prevProps) {
-    if (prevProps.data !== this.props.data) {
-      const data = await getAllStocks(this.props.userId)
-      this.setState({ stocks: data.data })
-    }
-  }
-
   render() {
 
     const { isMobile } = this.props

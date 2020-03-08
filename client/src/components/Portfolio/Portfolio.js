@@ -15,7 +15,7 @@ export default class Portfolio extends Component {
   }
 
   async componentDidUpdate(prevProps) {
-    if (prevProps.data !== this.props.data) {
+    if (this.props.qty !== prevProps.qty) {
       const data = await getAllStocks(this.props.userId)
       this.setState({ stocks: data.data })
     }
