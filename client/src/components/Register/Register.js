@@ -4,7 +4,7 @@ import './Register.css'
 
 export default class Register extends Component {
   render () {
-    const { onFormChange, onRegisterSubmit, isOpen, handleOpen } = this.props
+    const { onFormChange, onRegisterSubmit, isOpen, handleOpen, regErr } = this.props
 
     return (
       <div>
@@ -30,7 +30,7 @@ export default class Register extends Component {
                 </Button.Content>
               </Button>
             }
-            content='All Fields Required!'
+            content={regErr}
             on='click'
             open={isOpen}
             onOpen={handleOpen}

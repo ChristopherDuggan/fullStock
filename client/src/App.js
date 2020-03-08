@@ -26,7 +26,8 @@ export default class App extends Component {
     symbolPresent: false,
     visible: false,
     isOpen: false,
-    width: window.innerWidth
+    width: window.innerWidth,
+    regErr: "Registration Error"
 
   }
 
@@ -83,7 +84,7 @@ export default class App extends Component {
 
   onRegisterSubmit = async (event) => {
 
-    const { username, email, password } = this.state;
+    const { username, email, password, regErr } = this.state;
 
     event.preventDefault();
 
@@ -94,15 +95,22 @@ export default class App extends Component {
         password: password,
         balance: 5000
       })
-      this.setState({
-        userId: user.data.id,
-        username: user.data.username,
-        email: user.data.email,
-        balance: user.data.balance,
-        isLoggedIn: true,
-        activeItem: 'portfolio'
-      })
+      if (user) {
+        this.setState({
+          userId: user.data.id,
+          username: user.data.username,
+          email: user.data.email,
+          balance: user.data.balance,
+          isLoggedIn: true,
+          activeItem: 'portfolio'
+        })
+      } else {
+        this.setState({ regErr: 'Email Already In Use' })
+        this.handleOpen()
+      }
+
     } else {
+      this.setState({ regErr: 'All Fields Required' })
       this.handleOpen()
     }
   }
@@ -159,7 +167,8 @@ export default class App extends Component {
       visible,
       isOpen,
       handleOpen,
-      width
+      width,
+      regErr
     } = this.state;
 
     const isMobile = width <= 768;
@@ -177,6 +186,7 @@ export default class App extends Component {
                 onFormChange={this.onFormChange}
                 onLoginSubmit={this.onLoginSubmit}
                 onRegisterSubmit={this.onRegisterSubmit}
+                regErr={regErr}
               />}
             />
             :

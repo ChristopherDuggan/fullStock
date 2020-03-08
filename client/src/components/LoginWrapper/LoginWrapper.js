@@ -6,7 +6,16 @@ import './LoginWrapper.css'
 
 export default class LoginWrapper extends Component {
   render () {
-    const { handleOpen, isOpen, activeItem, handleItemClick, onFormChange, onLoginSubmit, onRegisterSubmit } = this.props
+    const {
+      handleOpen,
+      isOpen,
+      activeItem,
+      handleItemClick,
+      onFormChange,
+      onLoginSubmit,
+      onRegisterSubmit,
+      regErr
+    } = this.props
 
     return (
       <div>
@@ -33,6 +42,7 @@ export default class LoginWrapper extends Component {
                       handleOpen={handleOpen}
                       onFormChange={onFormChange}
                       onRegisterSubmit={onRegisterSubmit}
+                      regErr={regErr}
                       />
                     : null
               }
