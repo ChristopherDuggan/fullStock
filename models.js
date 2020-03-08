@@ -26,7 +26,7 @@ const User = db.define('users', {
     type: Sequelize.STRING
   },
   balance: {
-    type: Sequelize.INTEGER
+    type: Sequelize.DECIMAL(20, 4)
   }
 })
 

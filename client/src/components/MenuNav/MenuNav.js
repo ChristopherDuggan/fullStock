@@ -13,8 +13,8 @@ export default class MenuNav extends Component {
             <Menu.Item header>{username}</Menu.Item>
             <Menu.Item header>
               {
-                isMobile ? `Cash: ${balance.toFixed(2)}`
-                  : `Available Cash: ${balance.toFixed(2)}`
+                isMobile ? `Cash: ${parseFloat(balance).toFixed(2)}`
+                  : `Available Cash: ${parseFloat(balance).toFixed(2)}`
               }
             </Menu.Item>
             <Menu.Menu position='right'>
@@ -48,8 +48,8 @@ export default class MenuNav extends Component {
           <Menu.Item header>{username}</Menu.Item>
           <Menu.Item header>
             {
-              isMobile ? `Cash: ${balance.toFixed(2)}`
-                : `Available Cash: ${balance.toFixed(2)}`
+              isMobile ? `Cash: ${parseFloat(balance).toFixed(2)}`
+                : `Available Cash: ${parseFloat(balance).toFixed(2)}`
             }
           </Menu.Item>
           <Menu.Menu position='right'>
